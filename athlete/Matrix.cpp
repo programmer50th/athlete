@@ -123,3 +123,11 @@ void cover(vector<Cell> &ls)
         ls[i].coverd++;
     }
 }
+
+int Matrix::getNum()
+{
+    int num=0;
+    for(int i=0;i<n;i++)
+        num+=container[i][i].coverd;
+    return num;
+}
