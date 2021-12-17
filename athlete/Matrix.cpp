@@ -44,13 +44,40 @@ void Matrix::findMin(int index)
     }
     else if (index == 1)//找列最小的
     {
-
+        for (int j = 0; j < n; j++)
+        {
+            int min = container[0][j].weight;
+            for (int i = 0; i < n; i++)
+            {
+                if (container[i][j].weight < min)
+                    min = container[i][j].weight;
+            }
+            for (int i = 0; i < n; i++)
+                container[i][j].weight -= min;
+        }
     }
     else if (index == 2)//找未标记中的最小的
     {
-
+        int min = 20000;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(container[i][j].coverd==0 && min>container[i][j].weight)
+                    min=container[i][j].weight;
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(container[i][j].coverd==0)
+                    container[i][j].weight-=min;
+                else if(container[i][j].coverd==2)
+                    container[i][j].weight+=min;
+            }
+        }
     }
-
 }
 void Matrix::print()
 {
