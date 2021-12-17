@@ -13,8 +13,16 @@ int main()
         {
             int temp;
             cin >> temp;
-            m.container[i][j].weight = temp;
-        }
+            if (temp == 0)
+            {
+                m.container[i][j].weight = temp;
+                m.container[i][j].validity = false;
+            }
+            else
+            {
+                m.container[i][j].weight = temp;
+            }
+            }
     }
     Matrix f(n);
     cout << "Input the weight F to M\n";
@@ -24,12 +32,31 @@ int main()
         {
             int temp;
             cin >> temp;
+            if (temp == 0)
+            {
+                f.container[i][j].weight = temp;
+                f.container[i][j].validity = false;
+            }
             f.container[i][j].weight = temp;
         }
     }
     m.dotMul(f);
+    //m.print();
+    m.findMin(0);
+    m.findMin(1);
+    while (true)
+    {
+        m.findZero();
+        m.print();
+        if (m.getNum() >= n)
+            break;
+        if (m.anyZeroLeft())
+            m.uncoverFind();
+        else
+            m.findMin(2);
+        m.print();
+    }
     m.print();
-    //todo
-
+    m.output();
     return 0;
 }

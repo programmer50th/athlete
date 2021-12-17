@@ -81,6 +81,7 @@ void Matrix::findMin(int index)
 }
 void Matrix::print()
 {
+    cout << endl;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
@@ -90,10 +91,21 @@ void Matrix::print()
         cout << endl;
 
     }
+    cout << endl;
 }
 
 void Matrix::findZero()
 {
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            container[i][j].coverd = 0;
+            container[i][j].chosen = false;
+
+        }
+
+    }
     //find row
     for (int  i = 0; i < n; i++)
     {
@@ -106,12 +118,14 @@ void Matrix::findZero()
                 if (container[i][j].weight == 0 && container[i][j].coverd == 0)
                 {
                     index = j;
+                    container[i][j].chosen = true;
                     break;
                 }
             }
             for (int i = 0; i < n; i++)
             {
                 container[i][index].coverd++;
+                
             }
         }
     }
@@ -126,6 +140,7 @@ void Matrix::findZero()
             {
                 cnt++;
                 index = i;
+                container[i][j].chosen = true;
             }
         }
         if (cnt == 1)
@@ -160,5 +175,59 @@ int Matrix::getNum()
     int num=0;
     for(int i=0;i<n;i++)
         num+=container[i][i].coverd;
+    cout << num<<endl;
     return num;
+}
+
+void Matrix::uncoverFind()
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (container[i][j].coverd == 0 && container[i][j].validity == true)
+            {
+                cover(container[i]);
+                //cover column
+                for (int k = 0; k < n; k++)
+                {
+                    container[k][j].coverd++;
+                }
+            }
+        }
+
+    }
+    
+}
+
+bool Matrix::anyZeroLeft()
+{
+    bool flag = false;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (container[i][j].weight == 0 && container[i][j].coverd == 0)
+            {
+                flag = true;
+                return flag;
+            }
+        }
+    }
+    return flag;
+}
+
+void Matrix::output()
+{
+    cout << "M and F pair:\n";
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (container[i][j].chosen)
+            {
+                cout << i+1 << " " << j+1 << endl;
+            }
+        }
+    }
 }

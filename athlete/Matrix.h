@@ -15,6 +15,10 @@ public:
     void print();
     void findZero();
     int getNum();
+    void uncoverFind();
+    bool anyZeroLeft();
+    void output();
+
 };
 
 int countZero(vector<Cell> ls);
