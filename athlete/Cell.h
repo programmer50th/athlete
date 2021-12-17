@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 class Cell
 {
 public:
-    int weight;//¶ÔÓ¦±ßµÄÈ¨Öµ
-    int coverd;//0±íÊ¾Î´¸²¸Ç£¬1±íÊ¾¸²¸Ç
-    bool validity;//0±íÊ¾±ß²»´æÔÚ£¬1±íÊ¾´æÔÚ
+    int weight;//å¯¹åº”è¾¹çš„æƒå€¼
+    int coverd;//0è¡¨ç¤ºæœªè¦†ç›–ï¼Œ1è¡¨ç¤ºè¦†ç›–
+    bool validity;//0è¡¨ç¤ºè¾¹ä¸å­˜åœ¨ï¼Œ1è¡¨ç¤ºå­˜åœ¨
     Cell();
 };
 

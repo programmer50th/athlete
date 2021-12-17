@@ -1,4 +1,4 @@
-#include "Matrix.h"
+ï»¿#include "Matrix.h"
 
 Matrix::Matrix(int n)
 {
@@ -27,7 +27,7 @@ void Matrix::dotMul(Matrix m)
 
 void Matrix::findMin(int index)
 {
-    if (index == 0)//ÕÒĞĞ×îĞ¡µÄ
+    if (index == 0)//æ‰¾è¡Œæœ€å°çš„
     {
         for (int i = 0; i < n; i++)
         {
@@ -42,11 +42,11 @@ void Matrix::findMin(int index)
         }
 
     }
-    else if (index == 1)//ÕÒÁĞ×îĞ¡µÄ
+    else if (index == 1)//æ‰¾åˆ—æœ€å°çš„
     {
 
     }
-    else if (index == 2)//ÕÒÎ´±ê¼ÇÖĞµÄ×îĞ¡µÄ
+    else if (index == 2)//æ‰¾æœªæ ‡è®°ä¸­çš„æœ€å°çš„
     {
 
     }
@@ -83,7 +83,7 @@ int countZero(vector<Cell> ls)
     int n = 0;
     for (int i = 0; i < ls.size(); i++)
     {
-        if (ls[i].weight == 0)
+        if (ls[i].weight == 0&&ls[i].coverd == 0)
             n++;
     }
     return n;

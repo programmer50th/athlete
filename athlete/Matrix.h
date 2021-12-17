@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <vector>
 #include "cell.h"
 #include <iostream>
@@ -11,7 +11,7 @@ public:
     int n;
     std::vector<std::vector<Cell>> container;
     void dotMul(Matrix m);
-    void findMin(int index);//0°´ÐÐ£¬1°´ÁÐ£¬2ÕÒÎª¸²¸ÇµÄ
+    void findMin(int index);//0æŒ‰è¡Œï¼Œ1æŒ‰åˆ—ï¼Œ2æ‰¾ä¸ºè¦†ç›–çš„
     void print();
     void findZero();
 };
