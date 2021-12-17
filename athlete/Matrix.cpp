@@ -64,3 +64,35 @@ void Matrix::print()
 
     }
 }
+
+void Matrix::findZero()
+{
+    //find row
+    for (int  i = 0; i < n; i++)
+    {
+        if (countZero(container[i]) == 1)
+        {
+            cover(container[i]);
+        }
+    }
+    
+}
+
+int countZero(vector<Cell> ls)
+{
+    int n = 0;
+    for (int i = 0; i < ls.size(); i++)
+    {
+        if (ls[i].weight == 0)
+            n++;
+    }
+    return n;
+}
+
+void cover(vector<Cell> &ls)
+{
+    for (int i = 0; i < ls.size(); i++)
+    {
+        ls[i].coverd++;
+    }
+}

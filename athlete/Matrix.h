@@ -13,4 +13,8 @@ public:
     void dotMul(Matrix m);
     void findMin(int index);//0按行，1按列，2找为覆盖的
     void print();
+    void findZero();
 };
+
+int countZero(vector<Cell> ls);
+void cover(vector<Cell> &ls);
