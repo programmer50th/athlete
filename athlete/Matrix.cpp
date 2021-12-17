@@ -70,9 +70,40 @@ void Matrix::findZero()
     //find row
     for (int  i = 0; i < n; i++)
     {
+
         if (countZero(container[i]) == 1)
         {
-            cover(container[i]);
+            int index = 0;
+            for (int j = 0; j < container[i].size(); j++)
+            {
+                if (container[i][j].weight == 0 && container[i][j].coverd == 0)
+                {
+                    index = j;
+                    break;
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                container[i][index].coverd++;
+            }
+        }
+    }
+    //find column
+    for (int j = 0; j < n; j++)
+    {
+        int cnt=0;
+        int index;
+        for (int i = 0; i < n; i++)
+        {
+            if (container[i][j].weight == 0 && container[i][j].coverd == 0)
+            {
+                cnt++;
+                index = i;
+            }
+        }
+        if (cnt == 1)
+        {
+            cover(container[index]);
         }
     }
     
